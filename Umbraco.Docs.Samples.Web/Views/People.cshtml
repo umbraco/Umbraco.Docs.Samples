@@ -36,7 +36,7 @@
 
                 <div class="employee-grid__item">
                     @{
-                        var hackImageSharpFix = new HtmlString(HttpUtility.HtmlEncode(Url.GetCropUrl(person.Photo, 323, 300, htmlEncode: false).ToString().Replace("center=", "rxy=").Replace("mode", "rmode").Replace("anchor", "ranchor")));
+                        var hackImageSharpFix = new HtmlString(HttpUtility.HtmlEncode(Url.GetCropUrl(person.Photo, 323, 300, htmlEncode: false).ToString().Replace("center=", "rxy=").Replace("mode=", "rmode=").Replace("anchor=", "ranchor=")));
                     }
                     <div class="employee-grid__item__image" style="background-image: url('@hackImageSharpFix')"></div>
                     <div class="employee-grid__item__details">
