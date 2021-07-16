@@ -1,8 +1,8 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@using Umbraco.Extensions
+﻿@using System.Web
+@using Microsoft.AspNetCore.Html
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<People>
 @{
-    Layout = "master.cshtml";
+    Layout = "Master.cshtml";
 }
 @{
     void SocialLink(string content, string service)
@@ -35,7 +35,10 @@
             {
 
                 <div class="employee-grid__item">
-                    <div class="employee-grid__item__image" style="background-image: url('@person.Photo?.Url()')"></div>
+                    @{
+                        var hackImageSharpFix = new HtmlString(HttpUtility.HtmlEncode(Url.GetCropUrl(person.Photo, 323, 300, htmlEncode: false).ToString().Replace("center=", "rxy=").Replace("mode", "rmode").Replace("anchor", "ranchor")));
+                    }
+                    <div class="employee-grid__item__image" style="background-image: url('@hackImageSharpFix')"></div>
                     <div class="employee-grid__item__details">
                         <h3 class="employee-grid__item__name">@person.Name</h3>
                         @if (!string.IsNullOrEmpty(person.Email))
