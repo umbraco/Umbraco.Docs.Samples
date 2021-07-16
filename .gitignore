@@ -35,6 +35,7 @@ bld/
 .vs/
 
 # Umbraco
+Umbraco.Docs.Samples.Web/App_Plugins/
 Umbraco.Docs.Samples.Web/umbraco/Data/TEMP/*
 Umbraco.Docs.Samples.Web/umbraco/Logs/*
 Umbraco.Docs.Samples.Web/umbraco/mediacache/*
