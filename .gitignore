@@ -1,16 +1,47 @@
-.vs/
-
+# User-specific files
+*.rsuser
+*.suo
 *.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
 
 # Build results
-
 [Dd]ebug/
+[Dd]ebugPublic/
 [Rr]elease/
+[Rr]eleases/
 x64/
-build/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
 [Oo]bj/
+[Ll]og/
+[Ll]ogs/
 
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio cache/options directory
+.vs/
+
+# Umbraco
 Umbraco.Docs.Samples.Web/umbraco/Data/TEMP/*
 Umbraco.Docs.Samples.Web/umbraco/Logs/*
 Umbraco.Docs.Samples.Web/umbraco/mediacache/*
+Umbraco.Docs.Samples.Web/umbraco/PartialViewMacros/
+Umbraco.Docs.Samples.Web/umbraco/UmbracoBackOffice/
+Umbraco.Docs.Samples.Web/umbraco/UmbracoInstall/
+Umbraco.Docs.Samples.Web/umbraco/UmbracoWebsite/
+Umbraco.Docs.Samples.Web/umbraco/config/
+
 Umbraco.Docs.Samples.Web/wwwroot/umbraco/
