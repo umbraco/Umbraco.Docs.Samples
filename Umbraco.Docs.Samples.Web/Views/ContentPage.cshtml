@@ -1,4 +1,11 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentPage>
+﻿@using Umbraco.Cms.Core.Routing
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Services
+@using Umbraco.Cms.Core
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentPage>
+@inject IPublishedUrlProvider PublishedUrlProvider
+@inject IUserService UserService
+
 @{
     Layout = "Master.cshtml";
 }
@@ -8,7 +15,7 @@
 <section class="section">
 
     <div class="container">
-
+        <h2>@Model.Parent.Name</h2>
         <div class="col-md-3">
             <nav class="nav-bar nav-bar--list">
                 @Html.Partial("~/Views/Partials/Navigation/SubNavigation.cshtml")
@@ -21,5 +28,100 @@
             </article>
         </div>
     </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+        <h1><a href="https://our.umbraco.com/Documentation/Reference/Querying/IPublishedContent/Properties/index-v9">Cheat sheet - Standard Model Properties</a></h1>
+        <dl>
+            <dt>.Parent</dt>
+            <dd>@Model.Parent.Name</dd>
+
+            <dt>.Id</dt>
+            <dd>@Model.Id</dd>
+
+            <dt>.TemplateId</dt>
+            <dd>@Model.TemplateId</dd>
+
+            <dt>.Key</dt>
+            <dd>@Model.Key</dd>
+
+            <dt>.SortOrder</dt>
+            <dd>@Model.SortOrder</dd>
+
+            <dt>.CreateDate</dt>
+            <dd>@Model.CreateDate</dd>
+
+            <dt>.UpdateDate</dt>
+            <dd>@Model.UpdateDate</dd>
+
+            <dt>.ContentType.Alias</dt>
+            <dd>@Model.ContentType.Alias</dd>
+
+            <dt>.Path</dt>
+            <dd>@Model.Path</dd>
+
+            <dt>.Level</dt>
+            <dd>@Model.Level</dd>
+
+            <dt>.UrlSegment</dt>
+            <dd>@Model.UrlSegment</dd>
+        </dl>
+    </div>
+
+    <div class="container">
+        <h1><a href="https://our.umbraco.com/Documentation/Reference/Querying/IPublishedContent/Properties/index-v9">Cheat sheet - Standard Model Methods</a></h1>
+        <dl>
+            <dt>.Url()</dt>
+            <dd>@Model.Url()</dd>
+
+            <dt>.Url("dk-dk")</dt>
+            <dd>@Model.Url("dk-dk")</dd>
+
+            <dt>.Url(mode: UrlMode.Absolute)</dt>
+            <dd>@Model.Url(mode: UrlMode.Absolute)</dd>
+
+            <dt>.MediaUrl()</dt>
+            <dd>@Model.HeaderImage.MediaUrl(propertyAlias:"customCropper")</dd>
+
+            <dt>.WriterName</dt>
+            <dd>@Model.WriterName()</dd>
+
+            <dt>.CreatorName</dt>
+            <dd>@Model.CreatorName()</dd>
+
+            <dt>.UrlSegment("dk-dk")</dt>
+            <dd>@Model.UrlSegment("dk-dk")</dd>
+
+            <dt>.Name("dk-dk")</dt>
+            <dd>@Model.Name("dk-dk")</dd>
+
+            <dt>.GetCultureFromDomains</dt>
+            <dd>@Model.GetCultureFromDomains()</dd>
+
+            <dt>.GetTemplateAlias()</dt>
+            <dd>@Model.GetTemplateAlias()</dd>
+
+        </dl>
+    </div>
+
+    <div class="container">
+        <h1><a href="https://our.umbraco.com/Documentation/Reference/Querying/IPublishedContent/Properties/index-v9">Cheat sheet - Checking Methods</a></h1>
+        <dl>
+            <dt>.HasValue("propertyAlias")</dt>
+            <dd>@Model.HasValue("seoMetaDescription")</dd>
+
+            <dt>.HasProperty("invalid")</dt>
+            <dd>@Model.HasProperty("invalid")</dd>
+            <dd>@Model.HasProperty("seoMetaDescription")</dd>
+
+            <dt>.HasCulture("dk-dk")</dt>
+            <dd>@Model.HasCulture("dk-dk")</dd>
+        </dl>
+    </div>
+
 
 </section>
