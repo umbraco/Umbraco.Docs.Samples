@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
+using Umbraco.Docs.Samples.Web.Notifications;
+
 namespace Umbraco.Docs.Samples.Web
 {
     public class Startup
@@ -44,6 +46,7 @@ namespace Umbraco.Docs.Samples.Web
                 .AddBackOffice()
                 .AddWebsite()
                 .AddComposers()
+                .AddDocsSamplesNotifications()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
 
