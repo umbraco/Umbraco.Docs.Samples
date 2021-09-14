@@ -85,7 +85,7 @@
             <dd>@Model.Url(mode: UrlMode.Absolute)</dd>
 
             <dt>.MediaUrl()</dt>
-            <dd>@Model.HeaderImage.MediaUrl(propertyAlias:"customCropper")</dd>
+            <dd>@Model.HeaderImage.MediaUrl(propertyAlias: "customCropper")</dd>
 
             <dt>.WriterName</dt>
             <dd>@Model.WriterName()</dd>
@@ -123,5 +123,260 @@
         </dl>
     </div>
 
+    <div class="container">
+        <h1><a href="https://our.umbraco.com/Documentation/Reference/Querying/IPublishedContent/Collections/index-v9">Cheat sheet - Collections</a></h1>
+        <dl>
+            <dt>.Children</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Children)
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Children()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Children())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>
+                .Children(Func&lt;IPublishedContent, bool&gt; predicate)
+            </dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Children(c => c.UpdateDate < DateTime.Today.AddMonths(-1)))
+                    {
+                         <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Children("myContentType")</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.ChildrenOfType("contentPage"))
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Children&lt;MyContentType&gt;</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Children<ContentPage>())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.ChildrenForAllCultures</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.ChildrenForAllCultures)
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Children(string culture = null)</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Children("dk-dk"))
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+        </dl>
+
+
+        <dt>.Ancestor()</dt>
+        <dd>
+            <ul>
+                @* return the first ancestor item from the current page *@
+                @{
+                    var ancestor = Model.Ancestor();
+                    <li><a href="@ancestor.Url()">@ancestor.Name</a></li>
+                }
+
+                @* return the first item, of a specific type, from the current page *@
+                @{
+                    var homePage = Model.Ancestor<Home>();
+                    <li><a href="@homePage.Url()">@homePage.Name</a></li>
+                }
+            </ul>
+        </dd>
+
+        <dl>
+            <dt>.Ancestors()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Ancestors())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Ancestors&lt;MyContentType&gt;()</dt>
+            <dd>
+                <ul>
+                    @{
+                        var pages = Model.Ancestors<INavigationBase>();
+                        foreach (var item in pages)
+                        {
+                            <li><a href="@item.Url()">@item.Name</a></li>
+                        }
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Ancestors(maxLevel)</dt>
+            <dd>
+                <ul>
+                    @{
+                        var ancestorsToTwo = Model.Ancestors(2);
+                        foreach (var item in ancestorsToTwo)
+                        {
+                            <li><a href="@item.Url()">@item.Name</a></li>
+                        }
+                    }
+                </ul>
+            </dd>
+
+            <dt>.AncestorsOrSelf()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.AncestorsOrSelf())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.AncestorsOrSelf(maxLevel)</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.AncestorsOrSelf(1))
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.AncestorsOrSelf&lt;MyContentType&gt;()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.AncestorsOrSelf<ContentPage>())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Descendants()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Descendants())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.DescendantsOfType("myContentType")</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.DescendantsOfType("contentPage"))
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Descendants&lt;MyContentType&gt;()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Descendants<ContentPage>())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.DescendantsOrSelf()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.DescendantsOrSelf())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.DescendantsOrSelf&lt;MyContentType&gt;()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.DescendantsOrSelf<ContentPage>())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Descendant()</dt>
+            <dd>
+                <ul>
+                    @{
+                        var descendant = Model.Descendant();
+                        if (descendant != null)
+                        {
+                            <li><a href="@descendant.Url()">@descendant.Name</a></li>
+                        }
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Siblings()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.Siblings())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.SiblingsAndSelf()</dt>
+            <dd>
+                <ul>
+                    @foreach (var item in Model.SiblingsAndSelf())
+                    {
+                        <li><a href="@item.Url()">@item.Name</a></li>
+                    }
+                </ul>
+            </dd>
+
+            <dt>.Root()</dt>
+            <dd>
+                <ul>
+                    @{ var root = Model.Root<Home>();
+                        <li><a href="@root.Url()">@root.Name</a></li>
+                    }
+                </ul>
+            </dd>
+        </dl>
+    </div>
 
 </section>
