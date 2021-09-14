@@ -14,6 +14,13 @@ namespace Umbraco.Docs.Samples.Web.Notifications
                 {
                     // Bye bye DK!
                 }
+
+                if (notification.HasUnpublishedCulture(publishedEntity,"en-US"))
+                {
+                    notification.Messages.Add(new EventMessage("Docs Samples Info: ContentPublishedNotification",
+                        $"{publishedEntity.Name} was unpublished for en-US",
+                        EventMessageType.Warning));
+                }
             }
         }
     }

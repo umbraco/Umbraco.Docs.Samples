@@ -11,6 +11,9 @@ namespace Umbraco.Docs.Samples.Web.Notifications
             foreach (var unPublishedEntity  in notification.UnpublishedEntities)
             {
                 // complete unpublish of entity, all cultures
+                notification.Messages.Add(new EventMessage("Docs Samples Info: ContentUnpublishedNotification",
+                    $"{unPublishedEntity.Name} was completely unpublished, all cultures",
+                    EventMessageType.Warning));
             }
         }
     }
