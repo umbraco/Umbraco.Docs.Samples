@@ -4,13 +4,13 @@ using Umbraco.Cms.Core.Notifications;
 namespace Umbraco.Docs.Samples.Web.Notifications
 {
     // https://our.umbraco.com/documentation/Reference/Notifications/Contentservice-Notifications#unpublishing
-    public class CultureUnpublishingCheck: INotificationHandler<ContentUnpublishingNotification>
+    public class CultureUnpublishingCheck: INotificationHandler<ContentPublishingNotification>
     {
-        public void Handle(ContentUnpublishingNotification  notification)
+        public void Handle(ContentPublishingNotification  notification)
         {
-            foreach (var entity  in notification.UnpublishedEntities)
+            foreach (var publishedEntity  in notification.PublishedEntities)
             {
-                if (notification.IsUnpublishingCulture(entity, "da-DK"))
+                if (notification.IsUnpublishingCulture(publishedEntity, "da-DK"))
                 {
                     // Bye bye DK!
                 }

@@ -12,8 +12,8 @@ namespace Umbraco.Docs.Samples.Web.Notifications
                 .AddNotificationHandler<ContentPublishingNotification, DontShout>()
                 .AddNotificationHandler<ContentSavingNotification, CultureSavingCheck>()
                 .AddNotificationHandler<ContentSavedNotification, CultureSavedCheck>()
-                .AddNotificationHandler<ContentUnpublishingNotification, CultureUnpublishingCheck>()
-                .AddNotificationHandler<ContentUnpublishedNotification, CultureUnpublishedCheck>()
+                .AddNotificationHandler<ContentPublishingNotification, CultureUnpublishingCheck>()
+                .AddNotificationHandler<ContentPublishedNotification, CultureUnpublishedCheck>()
                 .AddNotificationHandler<ContentPublishingNotification, CulturePublishingCheck>()
                 .AddNotificationHandler<ContentPublishedNotification, CulturePublishedCheck>();
             return builder;
