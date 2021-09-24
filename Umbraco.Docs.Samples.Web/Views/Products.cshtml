@@ -8,6 +8,10 @@
 
 <section class="section">
 
+    @{
+        var products = Model.Children<Product>();
+    }
+
     <div class="container">
 
         <!-- todo: implement category selector -->
@@ -35,5 +39,169 @@
             }
         </div>
     </div>
+
+        <div class="container">
+            <h1><a href="https://our.umbraco.com/Documentation/Reference/Querying/IPublishedContent/???">Cheat sheet - Functions of Collection </a></h1>
+            <dl>
+
+                <dt>.Any</dt>
+                <dd>@products.Any()</dd>
+
+                <dt>.Count</dt>
+                <dd>@products.Count()</dd>
+            </dl>
+        </div>
+
+            <div class="container">
+                <h1><a href="https://our.umbraco.com/Documentation/Reference/Querying/IPublishedContent/???">Cheat sheet - Filtering using Linq</a></h1>
+                <dl>
+                    <dt>.Where(p => p.Price > 400)</dt>
+                    <dd>
+                    @{
+                        var expensiveProducts = products.Where(p => p.Price > 400);
+                        <ul>
+                            @foreach (var product in expensiveProducts)
+                            {
+                                <li><a href="@product.Url()">@product.Name - @product.Price</a></li>
+                            }
+                        </ul>
+                    }
+                    </dd>
+
+                    <dt>.OrderBy(p => p.ProductName)</dt>
+                    <dd>
+                        @{
+                            var productsByName = products.OrderBy(p => p.ProductName);
+                            <ul>
+                                @foreach (var product in productsByName)
+                                {
+                                    <li><a href="@product.Url()">@product.Name - @product.Price</a></li>
+                                }
+                            </ul>
+                        }
+                    </dd>
+
+                  <dt>.OrderByDescending(p => p.Price)</dt>
+                  <dd>
+                      @{
+                          var productsByPrice = products.OrderByDescending(p => p.Price);
+                          <ul>
+                              @foreach (var product in productsByPrice)
+                              {
+                                  <li><a href="@product.Url()">@product.Name - @product.Price</a></li>
+                              }
+                          </ul>
+                      }
+                  </dd>
+
+                  <dt>.GroupBy(p => p.Supplier)</dt>
+                  <dd>
+                      @{
+                          var productsBySuppplier = products.GroupBy(p => p.Supplier);
+                          <ul>
+                              @foreach (var group in productsBySuppplier)
+                              {
+                                  <li>@group.Key
+                                      <ul>
+                                          @foreach (var product in group)
+                                          {
+                                              <li><a href="@product.Url()">@product.Name - @product.Price</a></li>
+                                          }
+                                      </ul>
+                                </li>
+                              }
+                          </ul>
+                      }
+                  </dd>
+
+
+                  <dt>.InGroupsOf(3)</dt>
+                  <dd>
+                      @{
+                          var productsInGroups = products.InGroupsOf(3);
+                          <ul>
+                              @foreach (var group in productsInGroups)
+                              {
+                                  <li>
+                                      <ul>
+                                          @foreach (var product in group)
+                                          {
+                                              <li><a href="@product.Url()">@product.Name - @product.Price</a></li>
+                                          }
+                                      </ul>
+                                </li>
+                              }
+                          </ul>
+                      }
+                  </dd>
+
+                  <dt>.Take()</dt>
+                    <dd>
+                        <ul>
+                        @{
+                            var topProducts = products.Take(3);
+                            @foreach (var product in topProducts)
+                            {
+                                <li><a href="@product.Url()">@product.Name - @product.Price</a></li>
+                            }
+                        }
+                        </ul>
+                    </dd>
+
+                  <dt>.Skip()</dt>
+                    <dd>
+                        <ul>
+                        @{
+                            var otherProducts = products.Skip(3);
+                            @foreach (var product in otherProducts)
+                            {
+                                <li><a href="@product.Url()">@product.Name - @product.Price</a></li>
+                            }
+                        }
+                        </ul>
+                    </dd>
+
+
+                  <dt>.IsVisible()</dt>
+                    <dd>
+                        <ul>
+                        @{
+                            var productMenu = products.Where(p => p.IsVisible());
+                            @foreach (var product in productMenu)
+                            {
+                                <li><a href="@product.Url()">@product.Name - @product.Price</a></li>
+                            }
+                        }
+                        </ul>
+                    </dd>
+
+                  <dt>.Select()</dt>
+                    <dd>
+                        <ul>
+                        @{
+                            var suppliers = products.Select(s => s.Supplier);
+                            @foreach (var supplier in suppliers)
+                            {
+                                <li>@supplier</li>
+                            }
+                        }
+                        </ul>
+                    </dd>
+
+                  <dt>.Distinct()</dt>
+                    <dd>
+                        <ul>
+                        @{
+                            var distinctSuppliers = products.Select(s => s.Supplier).Distinct();
+                            @foreach (var supplier in distinctSuppliers)
+                            {
+                                <li>@supplier</li>
+                            }
+                        }
+                        </ul>
+                    </dd>
+
+                </dl>
+            </div>
 
 </section>

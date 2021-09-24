@@ -255,22 +255,21 @@
                 </ul>
             </dd>
 
-            <dt>.AncestorsOrSelf()</dt>
+            <dt>.AncestorOrSelf(maxLevel)</dt>
             <dd>
                 <ul>
-                    @foreach (var item in Model.AncestorsOrSelf())
-                    {
-                        <li><a href="@item.Url()">@item.Name</a></li>
+                    @{
+                        var homepage = Model.AncestorOrSelf(1);
+                        <li><a href="@homepage.Url()">@homepage.Name</a></li>
                     }
-                </ul>
+                    </ul>
             </dd>
 
-            <dt>.AncestorsOrSelf(maxLevel)</dt>
+            <dt>.Root()</dt>
             <dd>
                 <ul>
-                    @foreach (var item in Model.AncestorsOrSelf(1))
-                    {
-                        <li><a href="@item.Url()">@item.Name</a></li>
+                    @{ var root = Model.Root<Home>();
+                        <li><a href="@root.Url()">@root.Name</a></li>
                     }
                 </ul>
             </dd>
@@ -368,14 +367,7 @@
                 </ul>
             </dd>
 
-            <dt>.Root()</dt>
-            <dd>
-                <ul>
-                    @{ var root = Model.Root<Home>();
-                        <li><a href="@root.Url()">@root.Name</a></li>
-                    }
-                </ul>
-            </dd>
+
         </dl>
     </div>
 

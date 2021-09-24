@@ -1,6 +1,9 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Home>
+@inject IPublishedContentQuery _publishedContentQuery
+
 @{
     Layout = "Master.cshtml";
+
     var backgroundImage = Model.HeroBackgroundImage != null ? Model.HeroBackgroundImage.Url() : String.Empty;
 }
 <section class="section section--full-height background-image-full overlay overlay--dark section--content-center section--thick-border"
@@ -40,4 +43,60 @@
         </div>
     </div>
 
+
+    <div class="container">
+        <h1><a href="https://our.umbraco.com/documentation/reference/templating/mvc/querying">Cheat sheet - Umbraco Helper</a></h1>
+        <dl>
+            <dt>.Content()</dt>
+            <dd>
+                @{
+                    var unicorn = Umbraco.Content(Guid.Parse("4e96411a-b8e1-435f-9322-2faee30ef5f2"));
+                }
+                @unicorn.Name
+            </dd>
+
+            <dt>.Content() as Product</dt>
+            <dd>
+                @{
+                    var unicornProduct = Umbraco.Content(Guid.Parse("4e96411a-b8e1-435f-9322-2faee30ef5f2")) as Product;
+                }
+                @unicornProduct.Name - @unicornProduct.Price
+            </dd>
+
+            <dt>.Media()</dt>
+            <dd>
+                @{
+                    var unicornImage = Umbraco.Media(Guid.Parse("55240594-b265-4fc2-b1c1-feffc5cf9571"));
+                }
+                <img src="@unicornImage.Url()" alt="@unicornImage.Name"/>
+            </dd>
+
+            <dt>.Media() as Type</dt>
+            <dd>
+                @{
+                    var unicornImageType = Umbraco.Media(Guid.Parse("55240594-b265-4fc2-b1c1-feffc5cf9571")) as Image;
+                }
+                <img src="@unicornImageType.Url()" alt="@unicornImageType.Name" width="@unicornImageType.UmbracoWidth" height="@unicornImageType.UmbracoHeight"/>
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="container">
+        <h1><a href="https://our.umbraco.com/Documentation/Reference/Searching/">Cheat sheet - Search</a></h1>
+        <dl>
+            <dt>_publishedContentQuery.Search("unicorn")</dt>
+            <dd>
+                <ul>
+                    @{
+                        var searchResults = _publishedContentQuery.Search("unicorn");
+                        @foreach (var result in searchResults.Where(r => r.Score > 0.05))
+                        {
+                            <li><a href="@result.Content.Url()">@result.Content.Name - @result.Score</a></li>
+                        }
+                    }
+                </ul>
+            </dd>
+        </dl>
+    </div>
 </section>
