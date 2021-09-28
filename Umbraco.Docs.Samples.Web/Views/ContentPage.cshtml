@@ -78,8 +78,8 @@
             <dt>.Url()</dt>
             <dd>@Model.Url()</dd>
 
-            <dt>.Url("dk-dk")</dt>
-            <dd>@Model.Url("dk-dk")</dd>
+            <dt>.Url("da-dk")</dt>
+            <dd>@Model.Url("da-dk")</dd>
 
             <dt>.Url(mode: UrlMode.Absolute)</dt>
             <dd>@Model.Url(mode: UrlMode.Absolute)</dd>
@@ -93,11 +93,11 @@
             <dt>.CreatorName</dt>
             <dd>@Model.CreatorName()</dd>
 
-            <dt>.UrlSegment("dk-dk")</dt>
-            <dd>@Model.UrlSegment("dk-dk")</dd>
+            <dt>.UrlSegment("da-dk")</dt>
+            <dd>@Model.UrlSegment("da-dk")</dd>
 
-            <dt>.Name("dk-dk")</dt>
-            <dd>@Model.Name("dk-dk")</dd>
+            <dt>.Name("da-dk")</dt>
+            <dd>@Model.Name("da-dk")</dd>
 
             <dt>.GetCultureFromDomains</dt>
             <dd>@Model.GetCultureFromDomains()</dd>
@@ -118,8 +118,8 @@
             <dd>@Model.HasProperty("invalid")</dd>
             <dd>@Model.HasProperty("seoMetaDescription")</dd>
 
-            <dt>.HasCulture("dk-dk")</dt>
-            <dd>@Model.HasCulture("dk-dk")</dd>
+            <dt>.HasCulture("da-dk")</dt>
+            <dd>@Model.HasCulture("da-dk")</dd>
         </dl>
     </div>
 
@@ -191,7 +191,7 @@
             <dt>.Children(string culture = null)</dt>
             <dd>
                 <ul>
-                    @foreach (var item in Model.Children("dk-dk"))
+                    @foreach (var item in Model.Children("da-dk"))
                     {
                         <li><a href="@item.Url()">@item.Name</a></li>
                     }
