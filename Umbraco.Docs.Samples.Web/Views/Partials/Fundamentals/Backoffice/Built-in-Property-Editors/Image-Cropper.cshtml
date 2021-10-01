@@ -1,0 +1,73 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Person>
+<h1><a href="https://our.umbraco.com/documentation/Fundamentals/Backoffice/Property-Editors/Built-in-Property-Editors/Image-Cropper/">/Fundamentals/Backoffice/Property-Editors/Built-in-Property-Editors/Image-Cropper/</a></h1>
+
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-image-container">
+                    <img src="@Url.GetCropUrl(Model.Photo,"square", true)" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-image-container">
+                    <img src="@Url.GetCropUrl(Model.SecondaryPhoto, "customCropper", "banner")" />
+                    <img src="@Model.SecondaryPhoto.GetCropUrl("customCropper", "banner")" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-image-container">
+                    @if (Model.Photo is not null)
+                    {
+                        <img src="@Url.GetCropUrl(Model.Photo, height: 300, width: 400)" alt="@Model.Photo.Name" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-image-container">
+                    @if (Model.Photo is not null)
+                    {
+                        var cropUrl = Url.GetCropUrl(Model.Photo, "square", false);
+                        <style>
+                            .myCssClass {
+                                background-image: url("@cropUrl");
+                                height: 400px;
+                                width: 400px;
+                            }
+                        </style>
+                        <div class="product-image-container myCssClass"></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

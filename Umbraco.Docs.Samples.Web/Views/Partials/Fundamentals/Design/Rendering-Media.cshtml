@@ -33,17 +33,17 @@ Example 2: Accessing a Media Image Modelsbuilder item based upon its Id
     var mediaItemAsImage = Umbraco.Media(Guid.Parse("55240594-b265-4fc2-b1c1-feffc5cf9571")) as Image;
     if (mediaItemAsImage != null)
     {
-        // you could add this as an extension method to the UUmbraco.Cms.Web.Common.PublishedModels.Image class
+        // you could add this as an extension method to the Umbraco.Cms.Web.Common.PublishedModels.Image class
         var orientationCssClass = mediaItemAsImage.UmbracoWidth > mediaItemAsImage.UmbracoHeight ? "img-landscape" : "img-portrait";
 
         <img src="@mediaItem.Url()" alt="@mediaItemAsImage.Name" class="@orientationCssClass"/>
     }
 }
 
-<h2>Example of using Image Cropper with the Models Builder strongly typed Image model</h2>
+<h2>Example of using Image Cropper</h2>
 
 @{
-    var mediaItemToCrop = Umbraco.Media(Guid.Parse("55240594-b265-4fc2-b1c1-feffc5cf9571")) as Image;
+    var mediaItemToCrop = Umbraco.Media(Guid.Parse("55240594-b265-4fc2-b1c1-feffc5cf9571"));
     if (mediaItemToCrop != null)
     {
         <img src="@Url.GetCropUrl(mediaItemToCrop, "square")" alt="@mediaItemToCrop.Name"/>

@@ -1,4 +1,8 @@
-﻿@{
-	Layout = "Master.cshtml";
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Person>
+@{
+    Layout = "Master.cshtml";
 }
-<p>Nothing to see, but we could make a lesson to display a person</p>
+@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+@await Html.PartialAsync("~/Views/Partials/Fundamentals/Backoffice/Built-in-Property-Editors/Image-Cropper.cshtml")
+
