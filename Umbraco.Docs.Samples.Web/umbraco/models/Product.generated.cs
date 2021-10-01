@@ -119,5 +119,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("supplier")]
 		public virtual string Supplier => this.Value<string>(_publishedValueFallback, "supplier");
+
+		///<summary>
+		/// Test Cropper
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "9.0.0+5bfab13dc5a268714aad2426a2b68ab5561a6407")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("testCropper")]
+		public virtual global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ImageCropperValue TestCropper => this.Value<global::Umbraco.Cms.Core.PropertyEditors.ValueConverters.ImageCropperValue>(_publishedValueFallback, "testCropper");
 	}
 }
