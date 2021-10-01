@@ -20,6 +20,8 @@
     </div>
 </section>
 
+@await Html.PartialAsync("~/Views/Partials/Fundamentals/Design/Rendering-Media.cshtml")
+
 <section class="section section">
     @Html.GetGridHtml(Model, "bodyText", "bootstrap3-fluid")
 </section>
