@@ -61,6 +61,15 @@ namespace Umbraco.Docs.Samples.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts(options => options.MaxAge(30));
+            }
+
+            // https://our.umbraco.com/documentation/Extending/Health-Check/Guides/
+            app.UseXfo(options => options.SameOrigin())
+               .UseXContentTypeOptions()
+               .UseXXssProtection(options => options.EnabledWithBlockMode());
 
             app.UseUmbraco()
                 .WithMiddleware(u =>

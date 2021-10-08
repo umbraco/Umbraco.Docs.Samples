@@ -4,6 +4,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
         <PackageReference Include="Umbraco.Cms" Version="9.0.0" />
         <PackageReference Include="Umbraco.Cms.Core" Version="9.0.0" />
         <PackageReference Include="Umbraco.Cms.SqlCe" Version="9.0.0" />
