@@ -83,6 +83,7 @@ namespace Umbraco.Docs.Samples.Web
                     u.UseBackOfficeEndpoints();
                     u.UseWebsiteEndpoints();
                 });
+
         }
     }
 }
