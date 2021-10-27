@@ -8,6 +8,7 @@ using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Extensions;
 
 using Umbraco.Docs.Samples.Web.Notifications;
+using Umbraco.Docs.Samples.Web.Trees;
 
 namespace Umbraco.Docs.Samples.Web
 {
@@ -47,6 +48,7 @@ namespace Umbraco.Docs.Samples.Web
                 .AddWebsite()
                 .AddComposers()
                 .AddDocsSamplesNotifications()
+                .ConfigureSearchableTrees()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
 
