@@ -79,6 +79,11 @@ namespace Umbraco.Docs.Samples.Web
                 })
                 .WithEndpoints(u =>
                 {
+                    u.EndpointRouteBuilder.MapControllerRoute(
+                        "Shop Controller",
+                        "/shop/{action}/{id?}",
+                        new { Controller = "Shop", Action = "Index" });
+
                     u.UseInstallerEndpoints();
                     u.UseBackOfficeEndpoints();
                     u.UseWebsiteEndpoints();
