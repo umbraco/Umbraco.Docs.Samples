@@ -42,6 +42,9 @@
         <Content Remove="umbraco\logs\**" />
         <Content Remove="umbraco\MediaCache\**" />
     </ItemGroup>
+    <ItemGroup>
+      <Content Include="App_Plugins\MyCustomDashboard\dashboard.html" />
+    </ItemGroup>
   
     <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->
     <PropertyGroup>
