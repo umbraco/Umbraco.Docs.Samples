@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Umbraco.Cms.Core.DependencyInjection;
+using Umbraco.Docs.Samples.Web.Notifications;
 
 namespace Umbraco.Docs.Samples.Web.RecurringHostedService
 {
@@ -7,7 +8,9 @@ namespace Umbraco.Docs.Samples.Web.RecurringHostedService
     {       
         public static IUmbracoBuilder AddCustomHostedServices(this IUmbracoBuilder builder)
         {
-            builder.Services.AddHostedService<CleanUpYourRoom>();
+            builder
+                .AddNotificationHandler<RoomCleanedNotification, RoomCleanedNotificationHandler>()
+                .Services.AddHostedService<CleanUpYourRoom>();
             return builder;
         }        
     }

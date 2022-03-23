@@ -7,6 +7,7 @@ using Umbraco.Cms.Core.Scoping;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Sync;
 using Umbraco.Cms.Infrastructure.HostedServices;
+using Umbraco.Docs.Samples.Web.Notifications;
 
 namespace Umbraco.Docs.Samples.Web.RecurringHostedService
 {
@@ -75,6 +76,11 @@ namespace Umbraco.Docs.Samples.Web.RecurringHostedService
                     "It's all clean now"))
                 {
                     _contentService.EmptyRecycleBin(userId: -1);
+
+                    // https://our.umbraco.com/documentation/Reference/Notifications/Creating-And-Publishing-Notifications
+                    // This will only be published when the scope is completed and disposed.
+                    scope.Notifications.Publish(new RoomCleanedNotification(numberOfThingsInBin));
+
                 }
             }
 
