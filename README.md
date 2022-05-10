@@ -1,6 +1,6 @@
-# Umbraco.Docs.Samples
+# Umbraco.Docs.Samples - v10-RC
 
-This GitHub project contains a Umbraco site using SQLCE (Windows only) and has the [v9 Starter Kit](https://github.com/umbraco/The-Starter-Kit/tree/v9/dev) installed.
+This GitHub project contains a Umbraco site which is currently using SQL LocalDB (Windows only and must be installed) and has the [v10 Starter Kit](https://github.com/umbraco/The-Starter-Kit/tree/v10/dev) installed.
 
 Default Umbraco user is:
 
@@ -11,6 +11,6 @@ Default Umbraco user is:
 
 It would be really rather wonderful if people contributed examples of different techniques synchronised with the examples in the Umbraco Documentation.
 
-For the time-being, create a folder for the 'type of example' at the root of the solution, we will advise if it should be a subfolder of something else, but main thing is to get buildable, workable, usuable examples in place!
+For the time-being, create a folder for the 'type of example' at the root of the solution, we will advise if it should be a subfolder of something else, but main thing is to get buildable, workable, usable examples in place!
 
-Only commit the Umbraco.sdf file back in your contribution, if you have needed to change the Umbraco implementation to illustrate your example, we're trying to keep it as close to the shipped starter kit, so if something in there can be repurposed to illustrate the example, then use that first. If not it's ok to add new DocTypes, Properties if it will help make the examples more real world and clearer!
+Only commit the Umbraco.sdf file back in your contribution, if you have needed to change the Umbraco implementation to illustrate your example, we're trying to keep it as close to the shipped starter kit, so if something in there can be re-purposed to illustrate the example, then use that first. If not it's ok to add new DocTypes, Properties if it will help make the examples more real world and clearer!
