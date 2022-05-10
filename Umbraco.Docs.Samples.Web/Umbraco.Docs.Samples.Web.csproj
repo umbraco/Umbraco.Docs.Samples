@@ -1,15 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
-        <PackageReference Include="Umbraco.Cms" Version="9.5.0" />
-        <PackageReference Include="Umbraco.Cms.Core" Version="9.5.0" />
-        <PackageReference Include="Umbraco.Cms.SqlCe" Version="9.5.0" />
-        <PackageReference Include="Umbraco.SqlServerCE" Version="4.0.0.1" />
-        <PackageReference Include="Umbraco.TheStarterKit" Version="9.0.0-beta001" />
+        <PackageReference Include="Umbraco.Cms" Version="10.0.0-rc1" />
+        <PackageReference Include="Umbraco.Cms.Core" Version="10.0.0-rc1" />
+        <PackageReference Include="Umbraco.TheStarterKit" Version="10.0.0-rc" />
     </ItemGroup>
 
 
