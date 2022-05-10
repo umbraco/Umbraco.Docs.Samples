@@ -62,7 +62,7 @@ namespace Umbraco.Docs.Samples.Web.RecurringHostedService
             }
 
             // Wrap the three content service calls in a scope to do it all in one transaction.
-            using IScope scope = _scopeProvider.CreateScope();
+            using var scope = _scopeProvider.CreateScope();
 
             int numberOfThingsInBin = _contentService.CountChildren(Constants.System.RecycleBinContent);
             _logger.LogInformation("Go clean your room - {ServerRole}", _serverRoleAccessor.CurrentServerRole);
