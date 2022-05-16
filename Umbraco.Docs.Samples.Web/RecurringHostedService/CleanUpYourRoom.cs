@@ -3,10 +3,10 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Logging;
-using Umbraco.Cms.Core.Scoping;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Sync;
 using Umbraco.Cms.Infrastructure.HostedServices;
+using Umbraco.Cms.Infrastructure.Scoping;
 using Umbraco.Docs.Samples.Web.Notifications;
 
 namespace Umbraco.Docs.Samples.Web.RecurringHostedService
@@ -31,7 +31,7 @@ namespace Umbraco.Docs.Samples.Web.RecurringHostedService
             IProfilingLogger profilingLogger,
             ILogger<CleanUpYourRoom> logger,
             IScopeProvider scopeProvider)
-            : base(HowOftenWeRepeat, DelayBeforeWeStart)
+            : base(logger, HowOftenWeRepeat, DelayBeforeWeStart)
         {
             _runtimeState = runtimeState;
             _contentService = contentService;
@@ -62,7 +62,7 @@ namespace Umbraco.Docs.Samples.Web.RecurringHostedService
             }
 
             // Wrap the three content service calls in a scope to do it all in one transaction.
-            using var scope = _scopeProvider.CreateScope();
+            using IScope scope = _scopeProvider.CreateScope();
 
             int numberOfThingsInBin = _contentService.CountChildren(Constants.System.RecycleBinContent);
             _logger.LogInformation("Go clean your room - {ServerRole}", _serverRoleAccessor.CurrentServerRole);
