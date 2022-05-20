@@ -1,6 +1,6 @@
 # Umbraco.Docs.Samples - v10-RC
 
-This GitHub project contains a Umbraco site which is currently using SQL LocalDB (Windows only and must be installed) and has the [v10 Starter Kit](https://github.com/umbraco/The-Starter-Kit/tree/v10/dev) installed.
+This GitHub project contains a Umbraco site which is currently using SQLLite and has the [v10 Starter Kit](https://github.com/umbraco/The-Starter-Kit/tree/v10/dev) installed.
 
 Default Umbraco user is:
 
