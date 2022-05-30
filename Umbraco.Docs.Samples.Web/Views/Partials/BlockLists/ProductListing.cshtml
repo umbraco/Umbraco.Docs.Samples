@@ -1,0 +1,25 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@model BlockListItem<ProductListing>
+@{
+    
+}
+
+<div class="container">
+    <div class="product-grid">
+        @if (Model.Content.Products != null)
+        {
+            <h3>Favourite Products</h3>
+            foreach (Product product in Model.Content.Products)
+            {
+                var defaultCurrency = product.Ancestor<Products>()?.DefaultCurrency;
+
+                <a href="@product.Url()" class="product-grid__item" style="background-image: url('@product.Photos?.Url()')">
+                    <div class="product-grid__item__overlay">
+                        <div class="product-grid__item__name">@product.ProductName</div>
+                        <div class="product-grid__item__price">@defaultCurrency @product.Price.ToString("F")</div>
+                    </div>
+                </a>
+            }
+        }
+    </div>
+</div>
