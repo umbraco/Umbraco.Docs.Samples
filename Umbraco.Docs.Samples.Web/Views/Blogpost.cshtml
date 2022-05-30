@@ -3,6 +3,7 @@
 @{
     Layout = "master.cshtml";
 }
+
 @Html.Partial("~/Views/Partials/SectionHeader.cshtml")
 
 <section class="section">
@@ -19,4 +20,26 @@
             <!-- todo: implement discus comments -->
         </article>
     </div>
+
+    <div class="container">
+        <h1><a href="https://our.umbraco.com/Documentation/Reference/Querying/UmbracoHelper/">Cheat sheet - UmbracoHelper</a></h1>
+        <dl>
+            <dt>.Content(Guid.Parse("ca4249ed-2b23-4337-b522-63cabe5587d1"))</dt>
+            <dd>@Umbraco.Content(Guid.Parse("ca4249ed-2b23-4337-b522-63cabe5587d1")).Name/dd>
+
+            <dt>.Content(Guid.Parse("bc41a208-5c36-4978-a3e2-7cfcfd581980")) as Blogpost</dt>
+            <dd>@((Umbraco.Content(Guid.Parse("bc41a208-5c36-4978-a3e2-7cfcfd581980")) as Blogpost).Name)</dd>
+
+            <dt>.Media(Guid.Parse("662af6ca-411a-4c93-a6c7-22c4845698e7"))</dt>
+            <dd>@Umbraco.Media(Guid.Parse("662af6ca-411a-4c93-a6c7-22c4845698e7")).Name</dd>
+
+            <dt>.Media(Guid.Parse("662af6ca-411a-4c93-a6c7-22c4845698e7"))</dt>
+            <dd>@((Umbraco.Media(Guid.Parse("662af6ca-411a-4c93-a6c7-22c4845698e7")) as Image).Name)</dd>
+
+            <dt>.ContentAtRoot</dt>
+            <dd>@Umbraco.ContentAtRoot().FirstOrDefault().Name</dd>
+
+        </dl>
+    </div>
+
 </section>
