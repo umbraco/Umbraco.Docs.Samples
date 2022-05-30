@@ -1,8 +1,14 @@
-﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Person>
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Docs.Samples.Web.Controllers.PersonViewModel>
 @{
     Layout = "Master.cshtml";
 }
-@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+
+@await Html.PartialAsync("~/Views/Partials/SectionHeader.cshtml")
+
+<div>
+    Our API says <strong>@Model.Content.Name</strong> has brown hair: <strong> @Model.IsYes</strong>?<br/>
+    <image src="@Model.IsYesImage" />
+</div>
 
 @await Html.PartialAsync("~/Views/Partials/Fundamentals/Backoffice/Built-in-Property-Editors/Image-Cropper.cshtml")
 
