@@ -22,7 +22,10 @@
             <div class="col-md-6">
                 <div class="product-image-container">
                     <img src="@Url.GetCropUrl(Model.SecondaryPhoto, "customCropper", "banner")" />
-                    <img src="@Model.SecondaryPhoto.GetCropUrl("customCropper", "banner")" />
+                    @if (Model.SecondaryPhoto != null)
+                    {
+                        <img src="@Model.SecondaryPhoto.GetCropUrl("customCropper", "banner")"/>
+                    }
                 </div>
             </div>
 
