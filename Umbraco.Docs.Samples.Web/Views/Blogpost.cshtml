@@ -39,7 +39,38 @@
             <dt>.ContentAtRoot</dt>
             <dd>@Umbraco.ContentAtRoot().FirstOrDefault().Name</dd>
 
+
         </dl>
     </div>
+
+    <div class="container">
+            <h1><a href="https://our.umbraco.com/Documentation/Reference/Querying/UmbracoContext/">UmbracoContext</a></h1>
+        <dl>
+            <dt>.Content.GetByRoute("/")</dt>
+            <dd>@UmbracoContext.Content.GetByRoute("/").Name</dd>
+
+            <dt>.InPreviewMode</dt>
+            <dd>@UmbracoContext.InPreviewMode</dd>
+
+            <dt>.IsDebug</dt>
+            <dd>@UmbracoContext.IsDebug</dd>
+
+            <dt>.Media.GetAtRoot().FirstOrDefault()</dt>
+            <dd>@UmbracoContext.Media.GetAtRoot().FirstOrDefault().Name</dd>
+
+            <dt>.CleanedUmbracoUrl</dt>
+            <dd>@UmbracoContext.CleanedUmbracoUrl</dd>
+
+            <dt>.OriginalRequestUrl</dt>
+            <dd>@UmbracoContext.OriginalRequestUrl</dd>
+
+            <dt>.Domains</dt>
+            <dd>@(string.Join(",", UmbracoContext.Domains.GetAll(true).Select(d=>d.Name)))</dd>
+
+            <dt>.PublishedRequest</dt>
+            <dd>@UmbracoContext.PublishedRequest</dd>
+
+        </dl>
+        </div>
 
 </section>
