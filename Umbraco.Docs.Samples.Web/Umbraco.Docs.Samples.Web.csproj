@@ -5,7 +5,7 @@
 
     <ItemGroup>
         <PackageReference Include="NWebsec.AspNetCore.Middleware" Version="3.0.0" />
-        <PackageReference Include="Umbraco.Cms" Version="10.0.0-rc2" />
+        <PackageReference Include="Umbraco.Cms" Version="10.0.0-rc4" />
         <PackageReference Include="Umbraco.TheStarterKit" Version="10.0.0-rc" />
     </ItemGroup>
 
@@ -50,6 +50,9 @@
     </ItemGroup>
     <ItemGroup>
       <Content Include="App_Plugins\MyCustomDashboard\dashboard.html" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="umbraco\config\" />
     </ItemGroup>
   
     <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->
