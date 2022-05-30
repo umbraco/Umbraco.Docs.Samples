@@ -52,9 +52,6 @@
     <ItemGroup>
       <Content Include="App_Plugins\MyCustomDashboard\dashboard.html" />
     </ItemGroup>
-    <ItemGroup>
-      <Folder Include="umbraco\config\" />
-    </ItemGroup>
   
     <!-- Set this to true if ModelsBuilder mode is not InMemoryAuto-->
     <PropertyGroup>
