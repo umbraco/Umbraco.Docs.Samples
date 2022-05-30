@@ -1,0 +1,16 @@
+﻿@model Umbraco.Cms.Core.Models.Blocks.BlockListModel
+@inject Microsoft.AspNetCore.Mvc.ViewComponents.IViewComponentSelector selector
+
+@foreach (var item in Model)
+{
+    var alias = item.Content.ContentType.Alias.ToFirstUpperInvariant();
+
+    @if (selector.SelectComponent(alias) != null)
+    {
+        @await Component.InvokeAsync(alias, new { model = item })
+    }
+    else
+    {
+         @await Component.InvokeAsync("BlockLists", new { model = item })
+    }
+}

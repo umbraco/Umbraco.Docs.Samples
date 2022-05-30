@@ -1,0 +1,23 @@
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@model BlockListItem<ImageText>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-image-container">
+                    @if (Model.Content.Image is not null)
+                    {
+                        <img src="@Url.GetCropUrl(Model.Content.Image,"square", true)" />
+                    }
+                </div>
+                <div class="">
+                    @if (Model.Content.Description is not null)
+                    {
+                        @Html.Raw(Model.Content.Description)
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
