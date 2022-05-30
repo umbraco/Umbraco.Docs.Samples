@@ -7,15 +7,17 @@
 @{
     void SocialLink(string content, string service)
     {
-        if (!string.IsNullOrEmpty(content))
+        if (string.IsNullOrEmpty(content))
         {
-            ; //semicolon needed otherwise <a> cannot be resolved
-            <a class="employee-grid__item__contact-item" href="http://@(service).com/@content">@service</a>
+            return;
         }
+
+        ; //semicolon needed otherwise <a> cannot be resolved
+        <a class="employee-grid__item__contact-item" href="http://@(service).com/@content">@service</a>
     }
 }
 
-@Html.Partial("~/Views/Partials/SectionHeader.cshtml")
+@await Html.PartialAsync("~/Views/Partials/SectionHeader.cshtml")
 
 <section class="section">
 
@@ -39,10 +41,10 @@
                         var imageUrl = Url.GetCropUrl(person.Photo, 323, 300, htmlEncode: false).ToString();
                     }
                     <div class="employee-grid__item__image" style="background-image: url('@Html.Raw(imageUrl))')"></div>
-                    <div class="employee-grid__item__image"><img src="@imageUrl"/></div>
+                    @* <div class="employee-grid__item__image"><img src="@imageUrl"/></div> *@
 
                     <div class="employee-grid__item__details">
-                        <h3 class="employee-grid__item__name">@person.Name</h3>
+                        <h3 class="employee-grid__item__name"><a href="@person.Url()"> @person.Name</a></h3>
                         @if (!string.IsNullOrEmpty(person.Email))
                         {
                             <a href="mailto:@person.Email" class="employee-grid__item__email">@person.Email</a>
