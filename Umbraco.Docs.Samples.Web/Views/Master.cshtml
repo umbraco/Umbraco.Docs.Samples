@@ -1,10 +1,23 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+// https://our.umbraco.com/documentation/Fundamentals/Design/Stylesheets-Javascript/#bundling--minification-for-javascript-and-css
+@using Microsoft.Extensions.Options
+@using Umbraco.Cms.Core.Configuration.Models
+@inject IOptions<HostingSettings> hostingSettings
+@{
+    var debugMode = hostingSettings.Value.Debug;
+}
+
+@using Umbraco.Cms.Core.WebAssets
+@inject IRuntimeMinifier runtimeMinifier
+
 @{
     Layout = null;
     // Get basic design settings from the homepage
     var home = (Home)Model.Root();
     var font = home.Font;
     var colorTheme = home.ColorTheme;
+
 }
 
 <!doctype html>
@@ -19,6 +32,19 @@
 
     <link rel="stylesheet" href="@Url.Content("~/css/umbraco-starterkit-style.css")" />
     @RenderSection("Header", required: false)
+
+    @{
+    //  https://our.umbraco.com/documentation/Fundamentals/Design/Stylesheets-Javascript/#bundling--minification-for-javascript-and-css
+    }
+    <script src="inline-js-bundle" debug="@debugMode"></script>
+    <link rel="stylesheet" href="inline-css-bundle" debug="@debugMode"/>
+
+    @Html.Raw(await runtimeMinifier.RenderJsHereAsync("inline-js-bundle"))
+    @Html.Raw(await runtimeMinifier.RenderCssHereAsync("inline-css-bundle"))
+
+    @await SmidgeHelper.JsHereAsync("inline-js-bundle", debugMode)
+    @await SmidgeHelper.CssHereAsync("inline-css-bundle", debugMode)
+
 </head>
 
 <body class="frontpage theme-font-@font theme-color-@colorTheme">

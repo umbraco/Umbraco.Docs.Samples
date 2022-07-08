@@ -10,6 +10,7 @@ using Umbraco.Extensions;
 using Umbraco.Docs.Samples.Web.Notifications;
 using Umbraco.Docs.Samples.Web.Trees;
 using Umbraco.Docs.Samples.Web.RecurringHostedService;
+using Umbraco.Docs.Samples.Web.Stylesheets_Javascript;
 
 namespace Umbraco.Docs.Samples.Web
 {
@@ -51,6 +52,7 @@ namespace Umbraco.Docs.Samples.Web
                 .AddDocsSamplesNotifications()
                 .ConfigureSearchableTrees()
                 .AddCustomHostedServices() // Register CleanUpYourRoom
+                .AddBundles()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
 
