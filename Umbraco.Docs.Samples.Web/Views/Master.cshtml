@@ -37,14 +37,40 @@
     @{
     //  https://our.umbraco.com/documentation/Fundamentals/Design/Stylesheets-Javascript/#bundling--minification-for-javascript-and-css
     }
-    <script src="inline-js-bundle" debug="@debugMode"></script>
-    <link rel="stylesheet" href="inline-css-bundle" debug="@debugMode"/>
+    <script src="registered-js-bundle" debug="@debugMode"></script>
+    <link rel="stylesheet" href="registered-css-bundle" debug="@debugMode" />
+
+    @Html.Raw(await runtimeMinifier.RenderJsHereAsync("registered-js-bundle"))
+    @Html.Raw(await runtimeMinifier.RenderCssHereAsync("registered-css-bundle"))
+
+    @{
+        runtimeMinifier.CreateJsBundle("inline-js-bundle",
+        BundlingOptions.NotOptimizedAndComposite,
+        new[] { "~/scripts/test-script1.js", "~/scripts/test-script2.js" });
+
+        runtimeMinifier.CreateCssBundle("inline-css-bundle",
+            BundlingOptions.NotOptimizedAndComposite,
+            new[] { "~/css/test-style.css" });
+    }
 
     @Html.Raw(await runtimeMinifier.RenderJsHereAsync("inline-js-bundle"))
     @Html.Raw(await runtimeMinifier.RenderCssHereAsync("inline-css-bundle"))
 
-    @await SmidgeHelper.JsHereAsync("inline-js-bundle", debugMode)
-    @await SmidgeHelper.CssHereAsync("inline-css-bundle", debugMode)
+    @{
+        // Using SmidgeHelper directly doesn't use the Umbraco Cache Buster
+
+        SmidgeHelper
+        .CreateJsBundle("inline-js-bundle-smidge")
+        .RequiresJs("~/scripts/test-script1.js", "~/scripts/test-script2.js");
+
+        SmidgeHelper
+        .CreateCssBundle("inline-css-bundle-smidge")
+        .RequiresCss("~/css/test-style.css");
+    }
+
+    @await SmidgeHelper.CssHereAsync("inline-css-bundle-smidge", debugMode)
+    @await SmidgeHelper.JsHereAsync("inline-js-bundle-smidge", debugMode)
+
 
 </head>
 

@@ -20,11 +20,11 @@ namespace Umbraco.Docs.Samples.Web.Stylesheets_Javascript
         {
             if (_runtimeState.Level == RuntimeLevel.Run)
             {
-                _runtimeMinifier.CreateJsBundle("inline-js-bundle",
+                _runtimeMinifier.CreateJsBundle("registered-js-bundle",
                 BundlingOptions.NotOptimizedAndComposite,
                 new[] { "~/scripts/test-script1.js", "~/scripts/test-script2.js" });
 
-                _runtimeMinifier.CreateCssBundle("inline-css-bundle",
+                _runtimeMinifier.CreateCssBundle("registered-css-bundle",
                     BundlingOptions.NotOptimizedAndComposite,
                     new[] { "~/css/test-style.css" });
             }
