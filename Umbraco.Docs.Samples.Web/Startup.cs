@@ -4,13 +4,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Umbraco.Cms.Core.DependencyInjection;
-using Umbraco.Extensions;
 
 using Umbraco.Docs.Samples.Web.Notifications;
 using Umbraco.Docs.Samples.Web.Trees;
 using Umbraco.Docs.Samples.Web.RecurringHostedService;
 using Umbraco.Docs.Samples.Web.Stylesheets_Javascript;
+using Umbraco.Docs.Samples.Web.Tutorials;
 
 namespace Umbraco.Docs.Samples.Web
 {
@@ -53,9 +52,9 @@ namespace Umbraco.Docs.Samples.Web
                 .ConfigureSearchableTrees()
                 .AddCustomHostedServices() // Register CleanUpYourRoom
                 .AddBundles()
+                .AddTutorials()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
-
         }
 
         /// <summary>
