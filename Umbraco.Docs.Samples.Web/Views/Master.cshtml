@@ -44,21 +44,26 @@
     @Html.Raw(await runtimeMinifier.RenderCssHereAsync("registered-css-bundle"))
 
     @{
-        runtimeMinifier.CreateJsBundle("inline-js-bundle",
-        BundlingOptions.NotOptimizedAndComposite,
-        new[] { "~/scripts/test-script1.js", "~/scripts/test-script2.js" });
+    // The Umbraco RuntimeMinifier CreateJsBundle method doesn't support in view bundle creation like the SmidgeHelper does
 
-        runtimeMinifier.CreateCssBundle("inline-css-bundle",
-            BundlingOptions.NotOptimizedAndComposite,
-            new[] { "~/css/test-style.css" });
+    //    runtimeMinifier.CreateJsBundle("inline-js-bundle",
+    //    BundlingOptions.NotOptimizedAndComposite,
+    //    new[] { "~/scripts/test-script1.js", "~/scripts/test-script2.js" });
+
+    //    runtimeMinifier.CreateCssBundle("inline-css-bundle",
+    //        BundlingOptions.NotOptimizedAndComposite,
+    //        new[] { "~/css/test-style.css" });
     }
 
-    @Html.Raw(await runtimeMinifier.RenderJsHereAsync("inline-js-bundle"))
-    @Html.Raw(await runtimeMinifier.RenderCssHereAsync("inline-css-bundle"))
+    @{
+        //Html.Raw(await runtimeMinifier.RenderJsHereAsync("inline-js-bundle"))
+    }
+    @{
+        //Html.Raw(await runtimeMinifier.RenderCssHereAsync("inline-css-bundle"))
+    }
 
     @{
         // Using SmidgeHelper directly doesn't use the Umbraco Cache Buster
-
         SmidgeHelper
         .CreateJsBundle("inline-js-bundle-smidge")
         .RequiresJs("~/scripts/test-script1.js", "~/scripts/test-script2.js");
