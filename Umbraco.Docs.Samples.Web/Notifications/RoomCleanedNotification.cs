@@ -6,6 +6,7 @@ namespace Umbraco.Docs.Samples.Web.Notifications
     public class RoomCleanedNotification : INotification
     {
         public int ItemsDeleted { get; }
+
         public RoomCleanedNotification(int itemsDeleted) 
         {
             ItemsDeleted = itemsDeleted;
