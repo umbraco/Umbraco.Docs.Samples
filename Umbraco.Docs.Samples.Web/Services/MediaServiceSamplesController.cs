@@ -2,10 +2,13 @@
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.IO;
 using Umbraco.Cms.Core.Strings;
-using Umbraco.Cms.Core.Serialization;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core;
+
+// This using is unnecessary in this project as it references the Umbraco.Cms NuGet package however it may be required in a Class Library
+using Umbraco.Extensions;
+
 using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
