@@ -1,5 +1,4 @@
-﻿using Umbraco.Cms.Core.DependencyInjection;
-using Umbraco.Cms.Core.Notifications;
+﻿using Umbraco.Cms.Core.Notifications;
 
 namespace Umbraco.Docs.Samples.Web.Notifications
 {
@@ -19,7 +18,8 @@ namespace Umbraco.Docs.Samples.Web.Notifications
                 .AddNotificationHandler<ContentUnpublishedNotification, AllUnPublishedCheck>()
                 .AddNotificationHandler<ContentUnpublishingNotification, AllUnPublishingCheck>()
                 .AddNotificationHandler<SendingContentNotification, EditorSendingContentNotificationHandler>()
-                .AddNotificationHandler<SendingMemberNotification, EditorSendingMemberNotificationHandler>();
+                .AddNotificationHandler<SendingMemberNotification, EditorSendingMemberNotificationHandler>()
+                .AddNotificationHandler<SendingAllowedChildrenNotification, SendingAllowedChildrenNotificationHandler>();
             return builder;
         }
     }
