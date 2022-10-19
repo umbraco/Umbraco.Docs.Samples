@@ -50,6 +50,7 @@
         <Content Remove="umbraco\MediaCache\**" />
     </ItemGroup>
     <ItemGroup>
+      <Content Include="App_Plugins\FavouriteThings\Lang\en-us.xml" />
       <Content Include="App_Plugins\MyCustomDashboard\dashboard.html" />
     </ItemGroup>
   

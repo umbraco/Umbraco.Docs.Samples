@@ -469,4 +469,5 @@ $RECYCLE.BIN/
 appsettings-schema.json
 
 **/App_Plugins/*
-!**/App_Plugins/MyCustomDashboard/
+!**/App_Plugins/MyCustomDashboard
+!**/App_Plugins/FavouriteThings
