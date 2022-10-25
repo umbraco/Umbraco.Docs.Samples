@@ -467,6 +467,7 @@ $RECYCLE.BIN/
 # JSON Schema file for appsettings
 # This is auto generated from the build
 appsettings-schema.json
+appsettings-schema.Umbraco.Cms.json
 
 **/App_Plugins/*
 !**/App_Plugins/MyCustomDashboard
