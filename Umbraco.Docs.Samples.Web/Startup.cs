@@ -10,6 +10,8 @@ using Umbraco.Docs.Samples.Web.Trees;
 using Umbraco.Docs.Samples.Web.RecurringHostedService;
 using Umbraco.Docs.Samples.Web.Stylesheets_Javascript;
 using Umbraco.Docs.Samples.Web.Tutorials;
+using Umbraco.Cms.Web.Website.Controllers;
+using Umbraco.Docs.Samples.Web.Controllers;
 
 namespace Umbraco.Docs.Samples.Web
 {
@@ -55,6 +57,11 @@ namespace Umbraco.Docs.Samples.Web
                 .AddTutorials()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
+
+            services.Configure<UmbracoRenderingDefaultsOptions>(c =>
+            {
+                c.DefaultControllerType = typeof(DefaultController);
+            });
         }
 
         /// <summary>
