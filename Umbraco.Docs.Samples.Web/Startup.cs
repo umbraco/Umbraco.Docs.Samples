@@ -10,6 +10,8 @@ using Umbraco.Docs.Samples.Web.Trees;
 using Umbraco.Docs.Samples.Web.RecurringHostedService;
 using Umbraco.Docs.Samples.Web.Stylesheets_Javascript;
 using Umbraco.Docs.Samples.Web.Tutorials;
+using Umbraco.Cms.Web.Website.Controllers;
+using Umbraco.Docs.Samples.Web.Controllers;
 
 namespace Umbraco.Docs.Samples.Web
 {
