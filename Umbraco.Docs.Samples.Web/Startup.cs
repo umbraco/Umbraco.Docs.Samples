@@ -55,6 +55,11 @@ namespace Umbraco.Docs.Samples.Web
                 .AddTutorials()
                 .Build();
 #pragma warning restore IDE0022 // Use expression body for methods
+
+            services.Configure<UmbracoRenderingDefaultsOptions>(c =>
+            {
+                c.DefaultControllerType = typeof(DefaultController);
+            });
         }
 
         /// <summary>
