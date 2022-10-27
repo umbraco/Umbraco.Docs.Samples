@@ -6,6 +6,7 @@ using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace Umbraco.Docs.Samples.Web.Notifications
 {
+    // https://our.umbraco.com/documentation/Reference/Notifications/SendingAllowedChildrenNotification/
     internal class SendingAllowedChildrenNotificationHandler : INotificationHandler<SendingAllowedChildrenNotification>
     {
         public void Handle(SendingAllowedChildrenNotification notification)
