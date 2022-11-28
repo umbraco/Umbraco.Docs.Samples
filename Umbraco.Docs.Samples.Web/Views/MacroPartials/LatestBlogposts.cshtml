@@ -10,11 +10,8 @@
 @{
     var startNodeId = Model.MacroParameters["startNodeId"] ?? Model.Content.Id;
 
-    var numberOfPosts = 3;
-    if (Model.MacroParameters["numberOfPosts"] != null)
-    {
-        int.TryParse((string)Model.MacroParameters["numberOfPosts"], out numberOfPosts);
-    }
+    
+    var numberOfMorePosts = Model.GetParameterValue<int>("numberOfPosts");
 }
 
 @if (startNodeId != null)
@@ -35,7 +32,7 @@
 
     //Gets all blogposts to calculate pages
     var blogposts = startNode.Children.OrderBy(x => x.CreateDate).ToList();
-    var pageCount = (int)Math.Ceiling((double)blogposts.Count / (double)numberOfPosts);
+    var pageCount = (int)Math.Ceiling((double)blogposts.Count / (double)numberOfMorePosts);
     //gets the page from the querystring and sets it to one if it is out of range
     var page = 1;
     if (httpContext != null && !string.IsNullOrEmpty(httpContext.Request.Query["page"]))
@@ -47,7 +44,7 @@
         }
     }
     //Gets the blogposts for the current page
-    var pagedBlogposts = blogposts.Skip((page - 1) * numberOfPosts).Take(numberOfPosts).ToList();
+    var pagedBlogposts = blogposts.Skip((page - 1) * numberOfMorePosts).Take(numberOfMorePosts).ToList();
 
     if (pagedBlogposts.Count > 0)
     {
@@ -69,7 +66,7 @@
         </div>
     }
 
-    if (blogposts.Count > numberOfPosts)
+    if (blogposts.Count > numberOfMorePosts)
     {
         <div class="pagination">
             <nav class="nav-bar nav-bar--center">
