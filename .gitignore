@@ -455,7 +455,7 @@ $RECYCLE.BIN/
 
 
 ##
-## Umbraco CMS .NETCore
+## Umbraco CMS
 ##
 
 # Dont commit Umbraco TEMP folder containing Examine Indexes, NuCache etc
@@ -464,10 +464,9 @@ $RECYCLE.BIN/
 # Umbraco log files
 **/umbraco/Logs/
 
-# JSON Schema file for appsettings
-# This is auto generated from the build
+# JSON schema files for appsettings.json
 appsettings-schema.json
-appsettings-schema.Umbraco.Cms.json
+appsettings-schema.*.json
 
 **/App_Plugins/*
 !**/App_Plugins/MyCustomDashboard
