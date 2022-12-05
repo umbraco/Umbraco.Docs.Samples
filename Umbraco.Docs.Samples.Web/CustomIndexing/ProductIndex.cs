@@ -13,7 +13,7 @@ namespace Umbraco.Docs.Samples.Web.CustomIndexing
             ILoggerFactory loggerFactory,
             string name,
             IOptionsMonitor<LuceneDirectoryIndexOptions> indexOptions,
-            IHostingEnvironment hostingEnvironment,
+            Cms.Core.Hosting.IHostingEnvironment hostingEnvironment,
             IRuntimeState runtimeState) : base(loggerFactory,
             name,
             indexOptions,
