@@ -1,8 +1,8 @@
-# Umbraco.Docs.Samples - v10
+# Umbraco.Docs.Samples - v11
 
-**Umbraco v11 pre-release branch** can be found at [here](https://github.com/umbraco/Umbraco.Docs.Samples/tree/develop-v11)
+**Umbraco v10 branch** can be found at [here](https://github.com/umbraco/Umbraco.Docs.Samples/tree/develop-v10)
 
-This GitHub project contains a Umbraco site which is currently using SQLLite and has the [v10 Starter Kit](https://github.com/umbraco/The-Starter-Kit/tree/v10/dev) installed.
+This GitHub project contains a Umbraco site which is currently using SQLLite and has the [v11 Starter Kit](https://github.com/umbraco/The-Starter-Kit/tree/v11/dev) installed.
 
 Default Umbraco user is:
 
