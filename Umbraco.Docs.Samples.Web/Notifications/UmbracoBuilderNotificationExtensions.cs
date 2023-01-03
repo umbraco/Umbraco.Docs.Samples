@@ -19,7 +19,9 @@ namespace Umbraco.Docs.Samples.Web.Notifications
                 .AddNotificationHandler<ContentUnpublishingNotification, AllUnPublishingCheck>()
                 .AddNotificationHandler<SendingContentNotification, EditorSendingContentNotificationHandler>()
                 .AddNotificationHandler<SendingMemberNotification, EditorSendingMemberNotificationHandler>()
-                .AddNotificationHandler<SendingAllowedChildrenNotification, SendingAllowedChildrenNotificationHandler>();
+                .AddNotificationHandler<SendingAllowedChildrenNotification, SendingAllowedChildrenNotificationHandler>()
+                .AddNotificationHandler<MenuRenderingNotification, TreeNotificationHandler>();
+
             return builder;
         }
     }
