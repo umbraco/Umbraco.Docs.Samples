@@ -1,5 +1,4 @@
-﻿using Umbraco.Cms.Core.DependencyInjection;
-using Umbraco.Cms.Web.BackOffice.Trees;
+﻿using Umbraco.Cms.Web.BackOffice.Trees;
 
 // https://our.umbraco.com/Documentation/Extending/Section-Trees/Searchable-Trees/#example
 

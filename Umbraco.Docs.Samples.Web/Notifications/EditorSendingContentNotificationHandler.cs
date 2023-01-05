@@ -1,9 +1,6 @@
-﻿using System;
-using System.Linq;
-using Umbraco.Cms.Core.Events;
+﻿using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Models.ContentEditing;
 using Umbraco.Cms.Core.Notifications;
-using Umbraco.Extensions;
 
 namespace Umbraco.Docs.Samples.Web.Notifications
 {

@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Umbraco.Cms.Core.DependencyInjection;
-using Umbraco.Docs.Samples.Web.Notifications;
+﻿using Umbraco.Docs.Samples.Web.Notifications;
 
 namespace Umbraco.Docs.Samples.Web.RecurringHostedService
 {

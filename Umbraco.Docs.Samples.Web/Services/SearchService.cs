@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Examine;
+﻿using Examine;
 using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Models.PublishedContent;
 using Umbraco.Cms.Infrastructure.Examine;
-using Umbraco.Extensions;
 
 namespace Umbraco.Docs.Samples.Web.Services
 {
