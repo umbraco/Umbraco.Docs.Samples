@@ -12,10 +12,10 @@ namespace Umbraco.Docs.Samples.Web.Property_Editors_Add_Values
 {
     public class CreateImageCropperValuesController : UmbracoApiController
     {
-        private IContentService _contentService;
-        private IMediaService _mediaService;
-        private MediaUrlGeneratorCollection _mediaUrlGeneratorCollection;
-        private IPublishedSnapshotAccessor _publishedSnapshotAccessor;
+        private readonly IContentService _contentService;
+        private readonly IMediaService _mediaService;
+        private readonly MediaUrlGeneratorCollection _mediaUrlGeneratorCollection;
+        private readonly IPublishedSnapshotAccessor _publishedSnapshotAccessor;
 
 
         public CreateImageCropperValuesController(IContentService contentService, IMediaService mediaService, MediaUrlGeneratorCollection mediaUrlGeneratorCollection, IPublishedSnapshotAccessor publishedSnapshotAccessor)
@@ -48,10 +48,16 @@ namespace Umbraco.Docs.Samples.Web.Property_Editors_Add_Values
             // Serialize the image cropper value
             var cropperValue = JsonConvert.SerializeObject(cropper);
 
-            // Set the value of the property with alias 'cropper'
-            content.SetValue("testCropper", cropperValue, "en-US");
+            var testCropperAlias = Product.GetModelPropertyType(_publishedSnapshotAccessor, x => x.TestCropper)?.Alias;
 
-            content.SetValue(Product.GetModelPropertyType(_publishedSnapshotAccessor,x => x.TestCropper).Alias, cropperValue, "en-US");
+            // Set the value of the property with alias 'cropper'
+            if (content != null && !string.IsNullOrWhiteSpace(testCropperAlias))
+            {
+                content.SetValue("testCropper", cropperValue, "en-US");
+
+                content.SetValue(testCropperAlias, cropperValue, "en-US");
+            }
+            
 
             return _contentService.Save(content).Success.ToString();
         }
@@ -64,10 +70,21 @@ namespace Umbraco.Docs.Samples.Web.Property_Editors_Add_Values
             if (image.HasValue("umbracoFile"))
             {
                 var imageCropper = image.Value<ImageCropperValue>("umbracoFile");
-                foreach (var crop in imageCropper.Crops)
+
+                if (imageCropper != null && imageCropper.Crops != null)
                 {
-                    //Get the cropped URL and add it to the dictionary that I will return
-                    cropUrls.Add(crop.Alias, image.GetCropUrl(crop.Alias));
+                    foreach (var crop in imageCropper.Crops)
+                    {
+                        //Get the cropped URL and add it to the dictionary that I will return
+                        if (!string.IsNullOrWhiteSpace(crop.Alias))
+                        {
+                            var cropUrl = image.GetCropUrl(crop.Alias);
+                            if (!string.IsNullOrEmpty(cropUrl))
+                            {
+                                cropUrls.Add(crop.Alias, cropUrl);
+                            }
+                        }
+                    }
                 }
             }
 
