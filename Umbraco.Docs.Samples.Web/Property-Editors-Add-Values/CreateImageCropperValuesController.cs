@@ -48,13 +48,16 @@ namespace Umbraco.Docs.Samples.Web.Property_Editors_Add_Values
             // Serialize the image cropper value
             var cropperValue = JsonConvert.SerializeObject(cropper);
 
+            // Get the alias of the 'cropper' property
             var testCropperAlias = Product.GetModelPropertyType(_publishedSnapshotAccessor, x => x.TestCropper)?.Alias;
 
             // Set the value of the property with alias 'cropper'
             if (content != null && !string.IsNullOrWhiteSpace(testCropperAlias))
             {
+                // Set the value of the cropper
                 content.SetValue("testCropper", cropperValue, "en-US");
 
+                // Set the value of the cropper using the 'testCropperAlias' variable
                 content.SetValue(testCropperAlias, cropperValue, "en-US");
             }
             
