@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Umbraco.Cms.Core;
+﻿using Umbraco.Cms.Core;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Sync;

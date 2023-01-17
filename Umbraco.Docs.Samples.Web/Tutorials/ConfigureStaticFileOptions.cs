@@ -1,10 +1,4 @@
-﻿using System.IO;
-using System;
-using System.Collections.Generic;
-
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Http.Headers;
 using Microsoft.Net.Http.Headers;
 

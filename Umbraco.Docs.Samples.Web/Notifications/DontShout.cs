@@ -13,12 +13,16 @@ namespace Umbraco.Docs.Samples.Web.Notifications
                 if (contentItem.ContentType.Alias.Equals("blogpost"))
                 {
                     var blogPostTitle = contentItem.GetValue<string>("pageTitle");
-                    if (blogPostTitle.Equals(blogPostTitle.ToUpper()))
+
+                    if (!string.IsNullOrWhiteSpace(blogPostTitle))
                     {
-                        notification.Cancel = true;
-                        notification.CancelOperation(new EventMessage("Corporate style guideline infringement",
-                            "Don't put the blog post title in upper case, no need to shout! Publishing was cancelled",
-                            EventMessageType.Error));
+                        if (blogPostTitle.Equals(blogPostTitle.ToUpper()))
+                        {
+                            notification.Cancel = true;
+                            notification.CancelOperation(new EventMessage("Corporate style guideline infringement",
+                                "Don't put the blog post title in upper case, no need to shout! Publishing was cancelled",
+                                EventMessageType.Error));
+                        }
                     }
                 }
             }

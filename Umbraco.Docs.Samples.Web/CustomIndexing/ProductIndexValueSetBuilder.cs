@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Examine;
+﻿using Examine;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Infrastructure.Examine;
 

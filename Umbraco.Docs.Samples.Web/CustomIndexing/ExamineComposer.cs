@@ -1,7 +1,5 @@
 ﻿using Examine;
-using Microsoft.Extensions.DependencyInjection;
 using Umbraco.Cms.Core.Composing;
-using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Infrastructure.Examine;
 
 namespace Umbraco.Docs.Samples.Web.CustomIndexing
