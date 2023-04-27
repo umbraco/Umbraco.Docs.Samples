@@ -7,12 +7,17 @@ namespace Umbraco.Docs.Samples.Web.CustomIndexing
     public class ExamineComposer : IComposer
     {
         public void Compose(IUmbracoBuilder builder)
-        {
+        {          
+
             builder.Services.AddExamineLuceneIndex<ProductIndex, ConfigurationEnabledDirectoryFactory>("ProductIndex");
+
+            builder.Services.ConfigureOptions<ConfigureProductIndexOptions>();
 
             builder.Services.AddSingleton<ProductIndexValueSetBuilder>();
 
             builder.Services.AddSingleton<IIndexPopulator, ProductIndexPopulator>();
+
+ 
         }
     }
 }
