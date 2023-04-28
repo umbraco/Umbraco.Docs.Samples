@@ -35,12 +35,18 @@ namespace Umbraco.Docs.Samples.Web.CustomIndexing
 
                 options.FieldDefinitions = new(
                     new("id", FieldDefinitionTypes.Integer),
-                    new("name", FieldDefinitionTypes.FullText)
+                    new("name", FieldDefinitionTypes.FullText),
+                    //the examine dashboard uses nodeName in search results
+                    new("nodeName", FieldDefinitionTypes.InvariantCultureIgnoreCase),
+                    //__Published and path both required if using the ContentValueSetValidator
+                    new("__Published", FieldDefinitionTypes.Raw),
+                    new("path",FieldDefinitionTypes.InvariantCultureIgnoreCase)
                     );
 
                 options.UnlockIndex = true;
 
-                options.Validator = new ContentValueSetValidator(true, false, _publicAccessService, _scopeProvider, includeItemTypes: new[] { "product" });
+                //ContentValueSetValidator - requires Path, and ParentId
+                options.Validator = new ContentValueSetValidator(true,false, _publicAccessService, _scopeProvider, includeItemTypes: new[] { "product" });
                 
                 if (_settings.Value.LuceneDirectoryFactory == LuceneDirectoryFactory.SyncedTempFileSystemDirectoryFactory)
                 {
