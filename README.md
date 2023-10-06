@@ -1,6 +1,7 @@
-# Umbraco.Docs.Samples - v11
+# Umbraco.Docs.Samples - v12
 
 **Umbraco v10 branch** can be found at [here](https://github.com/umbraco/Umbraco.Docs.Samples/tree/develop-v10)
+**Umbraco v11 branch** can be found at [here](https://github.com/umbraco/Umbraco.Docs.Samples/tree/develop-v11)
 
 This GitHub project contains a Umbraco site which is currently using SQLLite and has the [v11 Starter Kit](https://github.com/umbraco/The-Starter-Kit/tree/v11/dev) installed.
 
