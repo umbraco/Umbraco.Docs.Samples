@@ -6,6 +6,7 @@ using Umbraco.Cms.Core.Models.Trees;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Trees;
 using Umbraco.Cms.Web.BackOffice.Trees;
+using Umbraco.Extensions;
 
 // https://our.umbraco.com/Documentation/Extending/Section-Trees/trees
 
